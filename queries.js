@@ -71,7 +71,7 @@ const deleteCustomer = (request, response) => {
   })
 }
 
-modeule.exports = {
+module.exports = {
   getCustomers,
   getCustomerById,
   createCustomer,

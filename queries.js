@@ -17,6 +17,8 @@ const getCustomers = (request, response) => {
 }
 
 const getCustomerById = (request, response) => {
+  const id = parseInt(request.params.id);
+
   pool.query('SELECT * FROM customers WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error

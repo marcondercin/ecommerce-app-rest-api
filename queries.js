@@ -62,3 +62,11 @@ const deleteCustomer = (request, response) => {
     response.status(200).send(`Customer deleted with ID: ${id}`)
   })
 }
+
+modeule.exports = {
+  getCustomers,
+  getCustomerById,
+  createCustomer,
+  updateCustomer,
+  deleteCustomer
+};

@@ -43,13 +43,19 @@ const updateCustomer = (request, response) => {
   const { first_name, last_name, email } = request.body
 
   pool.query(
-    'UPDATE customers SET first_name = $1, last_name = $2, email = $3 WHERE id = $4',
+    'UPDATE customers SET first_name = $1, last_name = $2, email = $3 WHERE id = $4 RETURNING *',
     [first_name, last_name, email, id],
     (error, results) => {
       if (error) {
         throw error
       }
-      response.status(200).send(`Customer modified with ID: ${id}`)
+      if (typeof results.rows == 'undefined') {
+        response.status(404).send(`Resource not found`);
+      } else if (Array.isArray(results.rows) && results.rows.length < 1) {
+        response.status(404).send(`Customer not found.`);
+      } else {
+        response.status(200).send(`Customer modified with ID: ${id}`);
+      }
     }
   );
 }

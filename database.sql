@@ -1,3 +1,4 @@
+-- Creating tables
 CREATE TABLE customers (
   id integer PRIMARY KEY,
   first_name varchar(50),
@@ -29,3 +30,7 @@ CREATE TABLE orders_products (
   PRIMARY KEY (order_id, product_id)
 );
 
+-- Dummy data
+INSERT INTO customers (id, first_name, last_name, email) VALUES 
+  (1, 'Jerry', 'Bobert', 'jerry@example.com'), 
+  (2, 'George', 'Boston', 'george@example.com');

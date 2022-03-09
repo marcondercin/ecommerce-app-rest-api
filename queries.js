@@ -28,12 +28,14 @@ const getCustomerById = (request, response) => {
 const createCustomer = (request, response) => {
   const { first_name, last_name, email } = request.body;
 
-  pool.query('INSERT INTO customers (first_name, last_name, email) VALUES ($1, $2, $3)', [first_name, last_name, email], (error, results) => {
+  pool.query('INSERT INTO customers (first_name, last_name, email) VALUES ($1, $2, $3) RETURNING *', [first_name, last_name, email], (error, results) => {
     if (error) {
       throw error
+    } else if (!Array.isArray(results.rows) || results.rows.length < 1) {
+      throw error
     }
-    response.status(201).send(`Customer added with ID: ${result.insertId}`);
-  })
+    response.status(201).send(`Customer added with ID: ${results.rows[0].id}`);
+  });
 }
 
 const updateCustomer = (request, response) => {

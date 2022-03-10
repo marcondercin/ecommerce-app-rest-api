@@ -1,0 +1,112 @@
+openapi: 3.0.1
+info:
+  title: ecommerce api
+  version: 1.0.0
+  description: Project for developing an api for e-commerce.
+  contact:
+    name: Marc Ondercin
+paths:
+  /register:
+    summary: Register a new user.
+    post:
+      summary: Create a new user.
+      description: Create a new user.
+      operationId: post_user
+      responses:
+        '200':
+          description: 200 Success
+          content:
+            application/json:
+              examples:
+                200 Success:
+                  value: User created successfully.
+        default:
+          description: Default error sample response
+      tags:
+        - register
+  /users/{id}:
+    summary: Access a user by id.
+  /products:
+    summary: Access all products from the database.
+    get:
+      summary: Retrieve all products.
+      description: ''
+      operationId: get_products
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - products
+    post:
+      summary: Add a new product.
+      description: Add a new product.
+      operationId: post_product
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - products
+  /products/{id}:
+    summary: Access a product by id.
+    get:
+      summary: Retrieve a product by id.
+      description: Retrieve a product by id.
+      operationId: get_product
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - products
+    put:
+      summary: Update product information.
+      description: Make a change to a product by its id.
+      operationId: put_product
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - products
+    delete:
+      summary: Delete a product.
+      description: Delete a product from id.
+      operationId: delete_product
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - products
+  /orders/{userId}:
+    summary: Access all orders from the database.
+    get:
+      summary: Retrieve all orders for a specific user.
+      description: Retrieve all orders for a specific user.
+      operationId: get_orders
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - orders
+  /orders/{userId}/{orderId}:
+    summary: Access an order by id.
+    get:
+      summary: Retrieve an order by id.
+      description: Retrieve an order by id.
+      operationId: get_order
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - orders
+  /login:
+    summary: Login to a specific user.
+  /cart/{userId}:
+    summary: Access user's cart.
+    get:
+      summary: Retrieve a user's cart.
+      description: ''
+      operationId: get_cart
+      responses:
+        default:
+          description: Default error sample response
+      tags:
+        - cart

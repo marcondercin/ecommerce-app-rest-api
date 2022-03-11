@@ -3,8 +3,8 @@ const app = express();
 const port = 3000;
 const db = require('./queries');
 
-const usersRouter = require('./users.js');
-const registerRouter = require('./register.js');
+const usersRouter = require('./routes/users.js');
+const registerRouter = require('./routes/register.js');
 
 app.get('/', (req, res) => {
   res.send('Hello world!')

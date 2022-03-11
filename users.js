@@ -1,6 +1,6 @@
 const Pool = require('pg').Pool;
-const creds = require('./dbCreds.js');
-const pool = new Pool(creds);
+const config = require('./config.js');
+const pool = new Pool(config);
 
 const express = require('express');
 const router = express.Router();

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const db = require('./queries');
+
 const usersRouter = require('./users.js');
 
 app.get('/', (req, res) => {

@@ -33,6 +33,6 @@ CREATE TABLE cart (
 );
 
 -- Dummy data
-INSERT INTO customers (id, first_name, last_name, email) VALUES 
-  (1, 'Jerry', 'Bobert', 'jerry@example.com'), 
-  (2, 'George', 'Boston', 'george@example.com');
+INSERT INTO users (username, password) VALUES 
+  ('JerryBerry', 'Jerry123'), 
+  ('GeorgeBeorge', 'George456');
